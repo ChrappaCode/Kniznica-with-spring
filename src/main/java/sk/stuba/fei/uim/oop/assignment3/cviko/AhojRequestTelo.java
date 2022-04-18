@@ -1,4 +1,4 @@
-package sk.stuba.fei.uim.oop.assignment3.web;
+package sk.stuba.fei.uim.oop.assignment3.cviko;
 
 public class AhojRequestTelo {
 
