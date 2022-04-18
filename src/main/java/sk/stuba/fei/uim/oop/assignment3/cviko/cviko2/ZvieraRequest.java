@@ -8,5 +8,6 @@ import lombok.Setter;
 public class ZvieraRequest {
 
     private String druh;
+    private String meno;
 
 }

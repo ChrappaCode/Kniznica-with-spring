@@ -8,10 +8,12 @@ public class ZvieraOdozva {
     private Long id;
 
     private String druh;
+    private String meno;
 
     public ZvieraOdozva(Zviera a){
         this.id = a.getId();
         this.druh = a.getDruh();
+        this.meno = a.getMeno();
     }
 
 }

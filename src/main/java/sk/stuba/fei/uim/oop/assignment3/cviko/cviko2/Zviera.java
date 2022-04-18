@@ -19,4 +19,6 @@ public class Zviera {
 
     private String druh;
 
+    private String meno;
+
 }

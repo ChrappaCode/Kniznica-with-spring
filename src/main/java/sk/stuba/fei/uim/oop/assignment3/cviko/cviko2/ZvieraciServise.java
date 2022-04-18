@@ -17,13 +17,15 @@ public class ZvieraciServise implements IZvieraciServise{
         this.repozitar = repozitar;
         Zviera a1 = new Zviera();
         a1.setDruh("Marha");
+        a1.setMeno("Dusan Cinkota");
         this.repozitar.save(a1);
         Zviera a2 = new Zviera();
         a2.setDruh("Algebraicky pes");
+        a2.setMeno("Oto Wagner");
         System.out.println(a2.getId());
         a2 = this.repozitar.save(a2);
         System.out.println(a2.getId());
-        this.repozitar.delete(a2);
+        //this.repozitar.delete(a2);
     }
 
     @Override
@@ -35,7 +37,14 @@ public class ZvieraciServise implements IZvieraciServise{
     public Zviera vyrob(ZvieraRequest request) {
         Zviera noveZviera = new Zviera();
         noveZviera.setDruh(request.getDruh());
+        noveZviera.setMeno(request.getMeno());
         return this.repozitar.save(noveZviera);
+    }
+
+
+    @Override
+    public List<Zviera> getAllByName(String meno) {
+        return this.repozitar.findByMeno(meno);
     }
 
 

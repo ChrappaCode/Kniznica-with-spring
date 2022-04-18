@@ -10,4 +10,6 @@ public interface ZvieraciRepo extends CrudRepository<Zviera, Long> {
 
     List<Zviera> findAll();
 
+    List<Zviera> findByMeno(String meno);
+
 }

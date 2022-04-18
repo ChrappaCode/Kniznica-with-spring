@@ -23,6 +23,11 @@ public class ZvieraKontroler {
         return this.servise.getAll().stream().map(ZvieraOdozva::new).collect(Collectors.toList()); //zviera -> new ZvieraOdozva(zviera)
     }
 
+    @GetMapping("/{meno}")
+    public List<ZvieraOdozva> getVsetkyZvierataPodlaMena(@PathVariable("meno") String meno){
+        return this.servise.getAllByName(meno).stream().map(ZvieraOdozva::new).collect(Collectors.toList()); //zviera -> new ZvieraOdozva(zviera)
+    }
+
     @PostMapping()
     public ZvieraOdozva pridajZviera(@RequestBody ZvieraRequest request){
         return new ZvieraOdozva(this.servise.vyrob(request));

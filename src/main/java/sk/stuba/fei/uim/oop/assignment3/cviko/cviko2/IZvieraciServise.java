@@ -6,5 +6,6 @@ public interface IZvieraciServise {
 
     List<Zviera> getAll();
     Zviera vyrob(ZvieraRequest request);
+    List<Zviera> getAllByName(String meno);
 
 }
