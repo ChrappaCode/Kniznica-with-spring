@@ -1,5 +1,6 @@
 package sk.stuba.fei.uim.oop.assignment3.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AhojKontroler {
+
+    @Autowired
+    private IAhojkyServise servise;
 
     private int pocitadlo = 0;
 
@@ -32,9 +36,7 @@ public class AhojKontroler {
 
     @PostMapping("/telo")
     public String telo(@RequestBody AhojRequestTelo telo){
-
-        return "ahoj " + telo.getName();
-
+        return servise.urobOdpoved(telo);
     }
 
 }
