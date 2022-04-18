@@ -1,4 +1,4 @@
-package sk.stuba.fei.uim.oop.assignment3.logika;
+package sk.stuba.fei.uim.oop.assignment3.web;
 
 
 import org.springframework.stereotype.Component;
