@@ -23,6 +23,7 @@ public class ZvieraciServise implements IZvieraciServise{
         System.out.println(a2.getId());
         a2 = this.repozitar.save(a2);
         System.out.println(a2.getId());
+        this.repozitar.delete(a2);
     }
 
     @Override
