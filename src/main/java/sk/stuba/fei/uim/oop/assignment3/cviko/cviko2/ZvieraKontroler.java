@@ -5,9 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/zviera")
-public class TestKontroler {
+public class ZvieraKontroler {
 
     @Autowired
     private IZvieraciServise servise;
@@ -15,6 +18,11 @@ public class TestKontroler {
     @GetMapping("/hello")
     public String hello(){
         return "HELLO WORLD";
+    }
+
+    @GetMapping()
+    public List<ZvieraOdozva> getVsetkyZvierata(){
+        return this.servise.getAll().stream().map(ZvieraOdozva::new).collect(Collectors.toList()); //zviera -> new ZvieraOdozva(zviera)
     }
 
 }

@@ -1,12 +1,17 @@
 package sk.stuba.fei.uim.oop.assignment3.cviko.cviko2;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Zvierata {
+@Getter
+@Setter
+public class Zviera {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
