@@ -29,4 +29,13 @@ public class ZvieraciServise implements IZvieraciServise{
     public List<Zviera> getAll() {
         return this.repozitar.findAll();
     }
+
+    @Override
+    public Zviera vyrob(ZvieraRequest request) {
+        Zviera noveZviera = new Zviera();
+        noveZviera.setDruh(request.getDruh());
+        return this.repozitar.save(noveZviera);
+    }
+
+
 }

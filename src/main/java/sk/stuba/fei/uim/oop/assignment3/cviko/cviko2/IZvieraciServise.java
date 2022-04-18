@@ -5,5 +5,6 @@ import java.util.List;
 public interface IZvieraciServise {
 
     List<Zviera> getAll();
+    Zviera vyrob(ZvieraRequest request);
 
 }

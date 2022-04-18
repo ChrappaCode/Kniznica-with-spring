@@ -1,9 +1,7 @@
 package sk.stuba.fei.uim.oop.assignment3.cviko.cviko2;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,6 +21,11 @@ public class ZvieraKontroler {
     @GetMapping()
     public List<ZvieraOdozva> getVsetkyZvierata(){
         return this.servise.getAll().stream().map(ZvieraOdozva::new).collect(Collectors.toList()); //zviera -> new ZvieraOdozva(zviera)
+    }
+
+    @PostMapping()
+    public ZvieraOdozva pridajZviera(@RequestBody ZvieraRequest request){
+        return new ZvieraOdozva(this.servise.vyrob(request));
     }
 
 }
