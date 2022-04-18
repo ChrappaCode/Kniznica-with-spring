@@ -1,20 +1,19 @@
 package sk.stuba.fei.uim.oop.assignment3.web;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 
 @RestController
 public class AhojKontroler {
 
     private int pocitadlo = 0;
 
-    @GetMapping(value = "/ahoj")
-    public String ahoj(){
-        return "ahoj " + (this.pocitadlo++);
+    @GetMapping(value = "/ahoj" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AhojOdozva> ahoj(){
+        return new ResponseEntity<>(new AhojOdozva(this.pocitadlo++,"Alojz Gec"), HttpStatus.OK);
     }
 
     @GetMapping(value = "/param")
@@ -28,6 +27,13 @@ public class AhojKontroler {
     public String ahojPathParameter(@PathVariable("name") String meno){
 
         return "ahoj " + meno;
+
+    }
+
+    @PostMapping("/telo")
+    public String telo(@RequestBody AhojRequestTelo telo){
+
+        return "ahoj " + telo.getName();
 
     }
 
