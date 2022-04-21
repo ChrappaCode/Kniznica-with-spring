@@ -13,14 +13,16 @@ public class AuthorResponse {
 
     private String name;
     private String surname;
-    private List<Book> books;
+
+    private int bookCounter;
+    //private List<Book> books;
 
     public AuthorResponse(Author author){
 
         this.id = author.getId();
         this.name = author.getName();
         this.surname = author.getSurname();
-        this.books = author.getBooks();
+        this.bookCounter = author.getBooks().size();
 
     }
 
