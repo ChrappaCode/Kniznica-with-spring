@@ -1,8 +1,8 @@
-package sk.stuba.fei.uim.oop.assignment3.author.data;
+package sk.stuba.fei.uim.oop.assignment3.author.author;
 
 import lombok.Getter;
 import lombok.Setter;
-import sk.stuba.fei.uim.oop.assignment3.book.Book;
+import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 
 import javax.persistence.*;
 import java.util.ArrayList;

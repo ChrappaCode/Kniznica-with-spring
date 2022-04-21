@@ -1,20 +1,20 @@
 package sk.stuba.fei.uim.oop.assignment3.author.web;
 
 import lombok.Getter;
-import sk.stuba.fei.uim.oop.assignment3.author.data.Author;
-import sk.stuba.fei.uim.oop.assignment3.book.Book;
+import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
+import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 
 import java.util.List;
 
 @Getter
 public class AuthorResponse {
 
-    private Long id;
+    private final Long id;
 
-    private String name;
-    private String surname;
+    private final String name;
+    private final String surname;
 
-    private List<Book> books;
+    private final List<Book> books;
 
     public AuthorResponse(Author author){
 
