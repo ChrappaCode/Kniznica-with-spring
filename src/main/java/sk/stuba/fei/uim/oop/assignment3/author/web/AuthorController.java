@@ -1,6 +1,9 @@
 package sk.stuba.fei.uim.oop.assignment3.author.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sk.stuba.fei.uim.oop.assignment3.author.logic.IAuthorService;
 
@@ -21,9 +24,9 @@ public class AuthorController {
         return this.service.getAll().stream().map(AuthorResponse::new).collect(Collectors.toList());
     }
 
-    @PostMapping()
-    public AuthorResponse addAuthor(@RequestBody AuthorRequest request){
-        return new AuthorResponse(this.service.create(request));
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AuthorResponse> addAuthor(@RequestBody AuthorRequest request){
+        return new ResponseEntity<>(new AuthorResponse(this.service.create(request)) , HttpStatus.CREATED);
     }
 
 }

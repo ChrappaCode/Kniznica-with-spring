@@ -14,15 +14,14 @@ public class AuthorResponse {
     private String name;
     private String surname;
 
-    private int bookCounter;
-    //private List<Book> books;
+    private List<Book> books;
 
     public AuthorResponse(Author author){
 
         this.id = author.getId();
         this.name = author.getName();
         this.surname = author.getSurname();
-        this.bookCounter = author.getBooks().size();
+        this.books = author.getBooks();
 
     }
 
