@@ -2,9 +2,10 @@ package sk.stuba.fei.uim.oop.assignment3.book.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookReqeust;
+import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 
 import java.util.List;
@@ -21,8 +22,18 @@ public class BookService implements IBookService{
     }
 
     @Override
-    public Book create(BookReqeust request) throws NotFound {
-        return null;
+    public Book create(BookRequest request) throws NotFound {
+        Book newBook = new Book();
+       /* newBook.setName(request.getName());
+        newBook.setDescription(request.getDescription());
+        if(request.getAuthorId() == null){
+            throw new NotFound();
+        }
+        newBook.getAuthor().setId(request.getAuthorId());
+        newBook.setPages(request.getPages());
+        newBook.setAmount(request.getAmount());
+        newBook.setLendCount(request.getLendCount());*/
+        return this.repository.save(newBook);
     }
 
     @Override
@@ -31,7 +42,7 @@ public class BookService implements IBookService{
     }
 
     @Override
-    public Book update(Long id, BookReqeust request) throws NotFound {
+    public Book update(Long id, BookRequest request) throws NotFound {
         return null;
     }
 
