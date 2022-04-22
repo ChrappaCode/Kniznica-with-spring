@@ -13,7 +13,7 @@ public class BookResponse {
     private final String name;
     private final String description;
 
-    private final int author;
+    private final Long author;
 
     private final int pages;
     private final int amount;
