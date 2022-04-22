@@ -18,8 +18,8 @@ public class Book {
     private String name;
     private String description;
 
-    //@ManyToOne
-    private Long author;
+    @ManyToOne
+    private Author author;
 
     private int pages;
     private int amount;
