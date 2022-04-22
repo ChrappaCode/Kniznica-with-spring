@@ -18,9 +18,9 @@ public class Book {
     private String name;
     private String description;
 
-    @ManyToOne
-    private Author author;
+    //@ManyToOne
 
+    private int author;
     private int pages;
     private int amount;
     private int lendCount;

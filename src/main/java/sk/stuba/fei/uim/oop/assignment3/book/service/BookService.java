@@ -24,15 +24,12 @@ public class BookService implements IBookService{
     @Override
     public Book create(BookRequest request) throws NotFound {
         Book newBook = new Book();
-       /* newBook.setName(request.getName());
+        newBook.setName(request.getName());
         newBook.setDescription(request.getDescription());
-        if(request.getAuthorId() == null){
-            throw new NotFound();
-        }
-        newBook.getAuthor().setId(request.getAuthorId());
+        newBook.setAuthor(request.getAuthorId());
         newBook.setPages(request.getPages());
         newBook.setAmount(request.getAmount());
-        newBook.setLendCount(request.getLendCount());*/
+        newBook.setLendCount(request.getLendCount());
         return this.repository.save(newBook);
     }
 
