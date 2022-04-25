@@ -7,7 +7,7 @@ public class BookRequest {
 
     private String name;
     private String description;
-    private Long authorId;
+    private Long author;
     private int pages;
     private int amount;
     private int lendCount;

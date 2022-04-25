@@ -6,7 +6,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import sk.stuba.fei.uim.oop.assignment3.author.web.AuthorResponse;
 import sk.stuba.fei.uim.oop.assignment3.book.service.IBookService;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 

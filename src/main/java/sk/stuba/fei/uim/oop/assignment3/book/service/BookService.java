@@ -3,8 +3,7 @@ package sk.stuba.fei.uim.oop.assignment3.book.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
-import sk.stuba.fei.uim.oop.assignment3.author.author.AuthorRepository;
-import sk.stuba.fei.uim.oop.assignment3.author.service.AuthorService;
+import sk.stuba.fei.uim.oop.assignment3.author.service.IAuthorService;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
 import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequest;
@@ -18,11 +17,8 @@ public class BookService implements IBookService{
     @Autowired
     private BookRepository repository;
 
-    private final AuthorService authorService;
-
-    public BookService(AuthorService authorService){
-        this.authorService = authorService;
-    }
+    @Autowired
+    private IAuthorService authorService;
 
     @Override
     public List<Book> getAllBooks() {
@@ -32,7 +28,7 @@ public class BookService implements IBookService{
     @Override
     public Book create(BookRequest request) throws NotFound {
 
-        Author a = authorService.getAuthorById(request.getAuthorId());
+        Author a = authorService.getAuthorById(request.getAuthor());
 
         Book newBook = new Book();
 
