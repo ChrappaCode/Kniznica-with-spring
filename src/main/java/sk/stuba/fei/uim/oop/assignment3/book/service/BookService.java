@@ -7,6 +7,7 @@ import sk.stuba.fei.uim.oop.assignment3.author.service.IAuthorService;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
 import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequest;
+import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequestEdit;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 
 import java.util.List;
@@ -38,21 +39,63 @@ public class BookService implements IBookService{
         newBook.setPages(request.getPages());
         newBook.setAmount(request.getAmount());
         newBook.setLendCount(request.getLendCount());
+
+        a.getBooks().add(newBook);
         return this.repository.save(newBook);
     }
 
     @Override
     public Book getBookById(Long id) throws NotFound {
-        return null;
+
+        if (this.repository.findBookById(id) == null) {
+            throw new NotFound();
+            }
+        return this.repository.findBookById(id);
+
     }
 
     @Override
-    public Book update(Long id, BookRequest request) throws NotFound {
-        return null;
+    public long getBookAmount(Long id) throws NotFound {
+
+        if (this.repository.findBookById(id) == null) {
+            throw new NotFound();
+        }
+        return this.repository.findBookById(id).getAmount();
+
+    }
+
+    @Override
+    public Book update(Long id, BookRequestEdit request) throws NotFound {
+
+        Book updatedBook = this.getBookById(id);
+
+        if(request.getAuthor() != 0){
+            Author a = authorService.getAuthorById(request.getAuthor());
+            updatedBook.getAuthor().getBooks().remove(updatedBook);
+            updatedBook.setAuthor(a);
+            a.getBooks().add(updatedBook);
+
+        }
+
+        if (request.getName() != null) {
+            updatedBook.setName(request.getName());
+        }
+        if (request.getDescription() != null) {
+            updatedBook.setDescription(request.getDescription());
+        }
+
+
+        if (request.getPages() != 0){
+            updatedBook.setPages(request.getPages());
+        }
+
+        return this.repository.save(updatedBook);
     }
 
     @Override
     public void delete(long id) throws NotFound {
-
+        Book deleteBook = this.getBookById(id);
+        deleteBook.getAuthor().getBooks().remove(deleteBook);
+        this.repository.delete(deleteBook);
     }
 }
