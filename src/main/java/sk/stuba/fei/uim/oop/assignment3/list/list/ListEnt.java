@@ -26,6 +26,4 @@ public class ListEnt {
         this.lendingList = new ArrayList<>();
     }
 
-
-
 }

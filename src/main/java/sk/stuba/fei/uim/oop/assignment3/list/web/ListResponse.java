@@ -12,14 +12,14 @@ public class ListResponse {
 
     private final Long id;
 
-    private final List<BookResponse> lendedList;
+    private final List<BookResponse> lendingList;
     private boolean lended;
 
 
     public ListResponse(ListEnt list){
 
         this.id = list.getId();
-        this.lendedList = list.getLendingList().stream().map(BookResponse::new).collect(Collectors.toList());
+        this.lendingList = list.getLendingList().stream().map(BookResponse::new).collect(Collectors.toList());
         this.lended = list.isLended();
 
     }

@@ -7,6 +7,7 @@ import sk.stuba.fei.uim.oop.assignment3.author.service.IAuthorService;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
 import sk.stuba.fei.uim.oop.assignment3.book.service.IBookService;
+import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListEnt;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListRepository;
 
@@ -36,6 +37,21 @@ public class ListService implements IListService{
 
         return this.repository.save(newList);
 
+    }
+
+    @Override
+    public ListEnt getListById(Long id) throws NotFound{
+
+        if (this.repository.findListById(id) == null) {
+            throw new NotFound();
+        }
+        return this.repository.findListById(id);
+    }
+
+    @Override
+    public void delete(long id) throws NotFound {
+        ListEnt deleteList = this.getListById(id);
+        this.repository.delete(deleteList);
     }
 
 }

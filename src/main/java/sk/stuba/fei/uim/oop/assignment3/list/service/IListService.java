@@ -10,6 +10,8 @@ import java.util.List;
 public interface IListService {
 
     List<ListEnt> getAllLists();
+    ListEnt getListById(Long id) throws NotFound;
     ListEnt createList();
+    void delete(long id) throws NotFound;
 
 }

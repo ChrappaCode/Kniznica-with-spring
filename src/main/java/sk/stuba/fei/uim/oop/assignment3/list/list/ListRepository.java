@@ -12,6 +12,6 @@ import java.util.List;
 public interface ListRepository extends JpaRepository<ListEnt, Long> {
 
     List<ListEnt> findAll();
-    ListEnt findBookById(Long id);
+    ListEnt findListById(Long id);
 
 }
