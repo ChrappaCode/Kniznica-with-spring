@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AmountResponse {
+public class AmountResponseRequest {
     private long amount;
 }

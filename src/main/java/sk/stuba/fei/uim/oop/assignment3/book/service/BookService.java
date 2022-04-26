@@ -6,6 +6,7 @@ import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
 import sk.stuba.fei.uim.oop.assignment3.author.service.IAuthorService;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
+import sk.stuba.fei.uim.oop.assignment3.book.web.AmountResponseRequest;
 import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequest;
 import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequestEdit;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
@@ -60,6 +61,26 @@ public class BookService implements IBookService{
         if (this.repository.findBookById(id) == null) {
             throw new NotFound();
         }
+        return this.repository.findBookById(id).getAmount();
+
+    }
+
+    @Override
+    public long getBookLendCount(Long id) throws NotFound {
+
+        if (this.repository.findBookById(id) == null) {
+            throw new NotFound();
+        }
+        return this.repository.findBookById(id).getLendCount();
+
+    }
+
+    @Override
+    public long increaseAmount(Long id , AmountResponseRequest request) throws NotFound{
+
+        Book book = this.getBookById(id);
+        book.setAmount((int) (book.getAmount() + request.getAmount()));
+        this.repository.save(book);
         return this.repository.findBookById(id).getAmount();
 
     }

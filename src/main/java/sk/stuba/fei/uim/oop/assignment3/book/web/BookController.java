@@ -30,8 +30,13 @@ public class BookController {
     }
 
     @GetMapping(value = "/{id}/amount", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AmountResponse getAmount(@PathVariable("id") Long id) throws NotFound {
-        return new AmountResponse(this.service.getBookAmount(id));
+    public AmountResponseRequest getAmount(@PathVariable("id") Long id) throws NotFound {
+        return new AmountResponseRequest(this.service.getBookAmount(id));
+    }
+
+    @GetMapping(value = "/{id}/lendCount", produces = MediaType.APPLICATION_JSON_VALUE)
+    public AmountResponseRequest getLendCount(@PathVariable("id") Long id) throws NotFound {
+        return new AmountResponseRequest(this.service.getBookLendCount(id));
     }
 
     @PutMapping(value = "/{id}" , produces = MediaType.APPLICATION_JSON_VALUE)
@@ -47,6 +52,11 @@ public class BookController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BookResponse> addBook(@RequestBody BookRequest request) throws NotFound {
         return new ResponseEntity<>(new BookResponse(this.service.create(request)) , HttpStatus.CREATED);
+    }
+
+    @PostMapping(value = "/{id}/amount" , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AmountResponseRequest addBook(@PathVariable("id") Long id, @RequestBody AmountResponseRequest request) throws NotFound {
+        return new AmountResponseRequest(this.service.increaseAmount(id, request));
     }
 
 }
