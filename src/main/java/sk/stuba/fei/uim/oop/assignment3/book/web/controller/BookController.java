@@ -1,4 +1,4 @@
-package sk.stuba.fei.uim.oop.assignment3.book.web;
+package sk.stuba.fei.uim.oop.assignment3.book.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,6 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import sk.stuba.fei.uim.oop.assignment3.book.service.IBookService;
+import sk.stuba.fei.uim.oop.assignment3.book.web.AmountResponseRequest;
+import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequest;
+import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequestEdit;
+import sk.stuba.fei.uim.oop.assignment3.book.web.BookResponse;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 
 import java.util.List;
