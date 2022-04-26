@@ -2,7 +2,7 @@ package sk.stuba.fei.uim.oop.assignment3.list.list;
 
 import lombok.Getter;
 import lombok.Setter;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookResponse;
+import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,7 +16,8 @@ public class ListEnt {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private List<BookResponse> lendingList;
+    @OneToMany(orphanRemoval = true)
+    private List<Book> lendingList;
 
     private boolean lended = false;
 
