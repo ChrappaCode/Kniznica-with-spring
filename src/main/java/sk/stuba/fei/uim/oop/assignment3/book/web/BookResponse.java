@@ -1,7 +1,6 @@
 package sk.stuba.fei.uim.oop.assignment3.book.web;
 
 import lombok.Data;
-import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 
 

@@ -5,6 +5,7 @@ import lombok.Setter;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -19,7 +20,11 @@ public class ListEnt {
     @OneToMany(orphanRemoval = true)
     private List<Book> lendingList;
 
-    private boolean lended = false;
+    private boolean lended;
+
+    public ListEnt() {
+        this.lendingList = new ArrayList<>();
+    }
 
 
 

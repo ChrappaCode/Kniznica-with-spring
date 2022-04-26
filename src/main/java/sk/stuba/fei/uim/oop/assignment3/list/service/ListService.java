@@ -2,6 +2,7 @@ package sk.stuba.fei.uim.oop.assignment3.list.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
 import sk.stuba.fei.uim.oop.assignment3.author.service.IAuthorService;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
@@ -26,6 +27,15 @@ public class ListService implements IListService{
     @Override
     public List<ListEnt> getAllLists() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public ListEnt createList(){
+
+        ListEnt newList = new ListEnt();
+
+        return this.repository.save(newList);
+
     }
 
 }

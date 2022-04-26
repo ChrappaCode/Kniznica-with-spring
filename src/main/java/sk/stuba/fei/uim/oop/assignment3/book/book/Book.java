@@ -1,6 +1,8 @@
 package sk.stuba.fei.uim.oop.assignment3.book.book;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
 
@@ -9,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -24,5 +27,6 @@ public class Book {
     private int pages;
     private int amount;
     private int lendCount;
+
 
 }
