@@ -7,9 +7,11 @@ import sk.stuba.fei.uim.oop.assignment3.author.service.IAuthorService;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
 import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
 import sk.stuba.fei.uim.oop.assignment3.book.service.IBookService;
+import sk.stuba.fei.uim.oop.assignment3.exeption.BadRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListEnt;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListRepository;
+import sk.stuba.fei.uim.oop.assignment3.list.web.ListRequest;
 
 import java.util.List;
 
@@ -47,6 +49,23 @@ public class ListService implements IListService{
         }
         return this.repository.findListById(id);
     }
+
+    @Override
+    public ListEnt addBookToList(Long id , ListRequest request) throws NotFound, BadRequest {
+
+        ListEnt addList = getListById(id);
+
+        if(addList.isLended()){
+            throw new BadRequest();
+        }
+
+        Book addBook = this.bookService.getBookById(request.getId());
+
+        addList.getLendingList().add(addBook);
+
+        return this.repository.save(addList);
+    }
+
 
     @Override
     public void delete(long id) throws NotFound {

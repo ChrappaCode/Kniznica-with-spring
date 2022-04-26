@@ -1,15 +1,16 @@
-package sk.stuba.fei.uim.oop.assignment3.list.web;
+package sk.stuba.fei.uim.oop.assignment3.list.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sk.stuba.fei.uim.oop.assignment3.author.web.AuthorResponse;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequest;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookResponse;
+import sk.stuba.fei.uim.oop.assignment3.book.web.AmountResponseRequest;
+import sk.stuba.fei.uim.oop.assignment3.exeption.BadRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 import sk.stuba.fei.uim.oop.assignment3.list.service.IListService;
+import sk.stuba.fei.uim.oop.assignment3.list.web.ListRequest;
+import sk.stuba.fei.uim.oop.assignment3.list.web.ListResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,6 +35,11 @@ public class ListController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ListResponse> createList() {
         return new ResponseEntity<>(new ListResponse(this.service.createList()) , HttpStatus.CREATED);
+    }
+
+    @PostMapping(value = "/{id}/add" , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ListResponse addBookToList(@PathVariable("id") Long id, @RequestBody ListRequest request) throws NotFound, BadRequest {
+        return new ListResponse(this.service.addBookToList(id, request));
     }
 
     @DeleteMapping(value = "/{id}")
