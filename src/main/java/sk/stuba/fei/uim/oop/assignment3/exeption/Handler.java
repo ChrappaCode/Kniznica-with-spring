@@ -12,4 +12,8 @@ public class Handler {
     @ExceptionHandler(NotFound.class)
     public void handleNotFound() {}
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(BadRequest.class)
+    public void handleBadRequest() {}
+
 }
