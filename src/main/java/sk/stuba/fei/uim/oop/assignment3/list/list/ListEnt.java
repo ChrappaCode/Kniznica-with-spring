@@ -5,17 +5,18 @@ import lombok.Setter;
 import sk.stuba.fei.uim.oop.assignment3.book.web.BookResponse;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
-public class List {
+public class ListEnt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private java.util.List<BookResponse> lendingList;
+    private List<BookResponse> lendingList;
 
     private boolean lended = false;
 
