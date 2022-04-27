@@ -2,16 +2,13 @@ package sk.stuba.fei.uim.oop.assignment3.list.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
-import sk.stuba.fei.uim.oop.assignment3.author.service.IAuthorService;
 import sk.stuba.fei.uim.oop.assignment3.book.book.Book;
-import sk.stuba.fei.uim.oop.assignment3.book.book.BookRepository;
 import sk.stuba.fei.uim.oop.assignment3.book.service.IBookService;
 import sk.stuba.fei.uim.oop.assignment3.exeption.BadRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListEnt;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListRepository;
-import sk.stuba.fei.uim.oop.assignment3.list.web.ListRequest;
+import sk.stuba.fei.uim.oop.assignment3.list.web.bodies.ListRequest;
 
 import java.util.List;
 
@@ -20,9 +17,6 @@ public class ListService implements IListService{
 
     @Autowired
     private ListRepository repository;
-
-    @Autowired
-    private IAuthorService authorService;
 
     @Autowired
     private IBookService bookService;
@@ -76,7 +70,6 @@ public class ListService implements IListService{
         }
         for(int i=0;i<listToBeLended.getLendingList().size();i++){
             listToBeLended.getLendingList().get(i).setLendCount(listToBeLended.getLendingList().get(i).getLendCount() + 1);
-            //this.repository.save(listToBeLended);
         }
 
         listToBeLended.setLended(true);
@@ -89,13 +82,15 @@ public class ListService implements IListService{
         ListEnt deleteList = this.getListById(id);
         if(deleteList.isLended()){
             for(int i=0;i<deleteList.getLendingList().size();i++){
-                //System.out.println(deleteList.getLendingList().get(i).getId());
                 deleteList.getLendingList().get(i).setLendCount(deleteList.getLendingList().get(i).getLendCount() - 1);
             }
+            deleteList.getLendingList().clear();
         }
+
+        else{
         deleteList.getLendingList().clear();
         this.repository.delete(deleteList);
-
+        }
     }
 
     @Override

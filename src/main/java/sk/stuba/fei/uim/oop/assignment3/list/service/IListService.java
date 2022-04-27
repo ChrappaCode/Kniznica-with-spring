@@ -3,7 +3,7 @@ package sk.stuba.fei.uim.oop.assignment3.list.service;
 import sk.stuba.fei.uim.oop.assignment3.exeption.BadRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListEnt;
-import sk.stuba.fei.uim.oop.assignment3.list.web.ListRequest;
+import sk.stuba.fei.uim.oop.assignment3.list.web.bodies.ListRequest;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package sk.stuba.fei.uim.oop.assignment3.list.web;
+package sk.stuba.fei.uim.oop.assignment3.list.web.bodies;
 
 import lombok.Data;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookResponse;
+import sk.stuba.fei.uim.oop.assignment3.book.web.bodies.BookResponse;
 import sk.stuba.fei.uim.oop.assignment3.list.list.ListEnt;
 
 import java.util.List;

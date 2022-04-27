@@ -7,10 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import sk.stuba.fei.uim.oop.assignment3.book.service.IBookService;
-import sk.stuba.fei.uim.oop.assignment3.book.web.AmountResponseRequest;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequest;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookRequestEdit;
-import sk.stuba.fei.uim.oop.assignment3.book.web.BookResponse;
+import sk.stuba.fei.uim.oop.assignment3.book.web.bodies.AmountResponseRequest;
+import sk.stuba.fei.uim.oop.assignment3.book.web.bodies.BookRequest;
+import sk.stuba.fei.uim.oop.assignment3.book.web.bodies.BookRequestEdit;
+import sk.stuba.fei.uim.oop.assignment3.book.web.bodies.BookResponse;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 
 import java.util.List;

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sk.stuba.fei.uim.oop.assignment3.author.author.Author;
 import sk.stuba.fei.uim.oop.assignment3.author.author.AuthorRepository;
-import sk.stuba.fei.uim.oop.assignment3.author.web.AuthorRequest;
+import sk.stuba.fei.uim.oop.assignment3.author.web.bodies.AuthorRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 
 

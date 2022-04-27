@@ -1,4 +1,4 @@
-package sk.stuba.fei.uim.oop.assignment3.book.web;
+package sk.stuba.fei.uim.oop.assignment3.book.web.bodies;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

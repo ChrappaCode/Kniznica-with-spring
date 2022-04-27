@@ -5,12 +5,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sk.stuba.fei.uim.oop.assignment3.book.web.AmountResponseRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.BadRequest;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 import sk.stuba.fei.uim.oop.assignment3.list.service.IListService;
-import sk.stuba.fei.uim.oop.assignment3.list.web.ListRequest;
-import sk.stuba.fei.uim.oop.assignment3.list.web.ListResponse;
+import sk.stuba.fei.uim.oop.assignment3.list.web.bodies.ListRequest;
+import sk.stuba.fei.uim.oop.assignment3.list.web.bodies.ListResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
