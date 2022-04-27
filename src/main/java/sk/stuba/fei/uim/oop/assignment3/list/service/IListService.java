@@ -13,6 +13,8 @@ public interface IListService {
     ListEnt getListById(Long id) throws NotFound;
     ListEnt createList();
     ListEnt addBookToList(Long id , ListRequest request) throws NotFound, BadRequest;
+    void lendList(long id) throws NotFound,BadRequest;
     void delete(long id) throws NotFound;
+    void delete(long id , ListRequest request) throws NotFound;
 
 }

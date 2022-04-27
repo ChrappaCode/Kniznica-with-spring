@@ -32,6 +32,11 @@ public class ListController {
         return new ListResponse(this.service.getListById(id));
     }
 
+    @GetMapping(value = "/{id}/lend")
+    public void lendList(@PathVariable("id") Long id) throws NotFound, BadRequest {
+        this.service.lendList(id);
+    }
+
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ListResponse> createList() {
         return new ResponseEntity<>(new ListResponse(this.service.createList()) , HttpStatus.CREATED);
@@ -45,6 +50,11 @@ public class ListController {
     @DeleteMapping(value = "/{id}")
     public void deleteList(@PathVariable("id") Long id) throws NotFound {
         this.service.delete(id);
+    }
+
+    @DeleteMapping(value = "/{id}/remove")
+    public void deleteBookFromList(@PathVariable("id") Long id, @RequestBody ListRequest request) throws NotFound{
+        this.service.delete(id , request);
     }
 
 }
