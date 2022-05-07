@@ -105,7 +105,6 @@ public class BookService implements IBookService{
             updatedBook.setDescription(request.getDescription());
         }
 
-
         if (request.getPages() != 0){
             updatedBook.setPages(request.getPages());
         }
