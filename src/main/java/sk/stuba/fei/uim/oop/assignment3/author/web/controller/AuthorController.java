@@ -10,7 +10,6 @@ import sk.stuba.fei.uim.oop.assignment3.author.web.bodies.AuthorRequest;
 import sk.stuba.fei.uim.oop.assignment3.author.web.bodies.AuthorResponse;
 import sk.stuba.fei.uim.oop.assignment3.exeption.NotFound;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
